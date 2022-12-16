@@ -4,134 +4,27 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>드래그 파일</title>
+    <title>단일 Input 다중 드래그 업로드</title>
     <link rel="stylesheet" href="./style.css" />
     <script src="./index.js" defer></script>
   </head>
   <body>
-    <div class="custom upload_wrap">
-      <ul>
-        <li>
-          <input id="tax" type="file" hidden accept=".png" multiple />
-          <label for="tax" class="drop">
-            <span class="text_wrap">
-              <span class="title">세금 계산서</span>
-              <span>Drag & Drop</span>
-              <span>640*640 png</span>
-            </span>
-            <span class="label_img_wrap"></span>
-          </label>
-          <button type="button" class="file_delete">
-            <span class="line"></span>
-            <span class="line"></span>
-          </button>
-        </li>
-        <li>
-          <input id="specification" type="file" hidden accept=".png" multiple />
-          <label for="specification">
-            <span class="text_wrap">
-              <span class="title">거래 명세서</span>
-              <span>Drag & Drop</span>
-              <span>640*640 png</span>
-            </span>
-            <span class="label_img_wrap"></span>
-          </label>
-          <button type="button" class="file_delete">
-            <span class="line"></span>
-            <span class="line"></span>
-          </button>
-        </li>
-        <li>
-          <input type="file" hidden id="estimate" accept=".png, .pdf" multiple />
-          <label for="estimate">
-            <span class="text_wrap">
-              <span class="title">견적서</span>
-              <span>Drag & Drop</span>
-              <span>png or pdf</span>
-            </span>
-            <span class="label_img_wrap"></span>
-          </label>
-          <button type="button" class="file_delete">
-            <span class="line"></span>
-            <span class="line"></span>
-          </button>
-        </li>
-        <li>
-          <input id="contract" type="file" hidden accept=".png, .pdf" multiple />
-          <label for="contract">
-            <span class="text_wrap">
-              <span class="title">계약서</span>
-              <span>Drag & Drop</span>
-              <span>png or pdf</span>
-            </span>
-            <span class="label_img_wrap"></span>
-          </label>
-          <button type="button" class="file_delete">
-            <span class="line"></span>
-            <span class="line"></span>
-          </button>
-        </li>
-        <li>
-          <input id="equipment" type="file" hidden accept=".png" multiple />
-          <label for="equipment">
-            <span class="text_wrap">
-              <span class="title">장비사진</span>
-              <span>Drag & Drop</span>
-              <span>640*640 png</span>
-            </span>
-            <span class="label_img_wrap"></span>
-          </label>
-          <button type="button" class="file_delete">
-            <span class="line"></span>
-            <span class="line"></span>
-          </button>
-        </li>
-        <li>
-          <input id="place" type="file" hidden accept=".png" multiple />
-          <label for="place">
-            <span class="text_wrap">
-              <span class="title">설치 장소 사진</span>
-              <span>Drag & Drop</span>
-              <span>640*640 png</span>
-            </span>
-            <span class="label_img_wrap"></span>
-          </label>
-          <button type="button" class="file_delete">
-            <span class="line"></span>
-            <span class="line"></span>
-          </button>
-        </li>
-        <li>
-          <input id="receipt" type="file" hidden accept=".png, .pdf" multiple />
-          <label for="receipt">
-            <span class="text_wrap">
-              <span class="title">영수증</span>
-              <span>Drag & Drop</span>
-              <span>png or pdf</span>
-            </span>
-            <span class="label_img_wrap"></span>
-          </label>
-          <button type="button" class="file_delete">
-            <span class="line"></span>
-            <span class="line"></span>
-          </button>
-        </li>
-        <li>
-          <input id="etc" type="file" hidden accept=".png, .pdf" multiple />
-          <label for="etc">
-            <span class="text_wrap">
-              <span class="title">기타</span>
-              <span>Drag & Drop</span>
-              <span>png or pdf</span>
-            </span>
-            <span class="label_img_wrap"></span>
-          </label>
-          <button type="button" class="file_delete">
-            <span class="line"></span>
-            <span class="line"></span>
-          </button>
-        </li>
-      </ul>
+    <div class="upload_wrap">
+      <div class="view_wrap">
+        <input id="tax" type="file" hidden accept=".png" multiple />
+        <label for="tax" class="drop upload_label">
+          <span class="text_wrap">
+            <span class="title">이미지 업로드</span>
+            <span>Drag & Drop</span>
+            <span>640*640 png</span>
+          </span>
+          <span class="label_img_wrap"></span>
+        </label>
+        <button type="button" class="file_delete">
+          <span class="line"></span>
+          <span class="line"></span>
+        </button>
+      </div>
     </div>
   </body>
 </html>

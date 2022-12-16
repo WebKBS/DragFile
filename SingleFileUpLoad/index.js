@@ -1,43 +1,39 @@
-const fileInput = document.querySelectorAll('input[type=file]');
-const label = document.querySelectorAll('label');
-const deleteFileBtn = document.querySelectorAll('.file_delete');
+const fileInput = document.querySelector('input[type=file]');
+const label = document.querySelector('.upload_label');
+const deleteFileBtn = document.querySelector('.file_delete');
+
+const fileType = ['image/png', 'application/pdf'];
 
 // 파일 업로드 후 취소 버튼 클릭시 초기화
-deleteFileBtn.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    const input = btn.parentElement.querySelector('input[type=file]');
-    const imgWrap = btn.parentElement.querySelector('.label_img_wrap');
-    const textWrap = btn.parentElement.querySelector('.text_wrap');
+deleteFileBtn.addEventListener('click', () => {
+  const input = deleteFileBtn.parentElement.querySelector('input[type=file]');
+  const imgWrap = deleteFileBtn.parentElement.querySelector('.label_img_wrap');
+  const textWrap = deleteFileBtn.parentElement.querySelector('.text_wrap');
 
-    input.value = '';
+  input.value = '';
 
-    while (imgWrap.firstChild) {
-      imgWrap.removeChild(imgWrap.firstChild);
-    }
+  while (imgWrap.firstChild) {
+    imgWrap.removeChild(imgWrap.firstChild);
+  }
 
-    textWrap.style.display = 'flex';
-    btn.style.display = 'none';
-    imgWrap.style.position = 'absolute';
-  });
+  textWrap.style.display = 'flex';
+  deleteFileBtn.style.display = 'none';
+  imgWrap.style.position = 'absolute';
 });
 
-fileInput.forEach((ev) => {
-  ev.addEventListener('change', (event) => {
-    const files = changeEvent(event);
-    handleUpdate(files, event.target);
-  });
+fileInput.addEventListener('change', (event) => {
+  const files = changeEvent(event);
+  handleUpdate(files, event.target);
 });
 
-label.forEach((event) => {
-  event.addEventListener('mouseover', (ev) => {
-    ev.preventDefault();
-    ev.currentTarget.parentElement.classList.add('on');
-  });
+label.addEventListener('mouseover', (ev) => {
+  ev.preventDefault();
+  ev.currentTarget.parentElement.classList.add('on');
+});
 
-  event.addEventListener('mouseout', (ev) => {
-    ev.preventDefault();
-    ev.currentTarget.parentElement.classList.remove('on');
-  });
+label.addEventListener('mouseout', (ev) => {
+  ev.preventDefault();
+  ev.currentTarget.parentElement.classList.remove('on');
 });
 
 document.addEventListener('dragenter', (event) => {
@@ -78,18 +74,18 @@ function handleUpdate(fileList, target) {
     const reader = new FileReader();
     reader.addEventListener('load', (event) => {
       const preview = createElement(event, file);
-      const ele = target.closest('li').querySelector('.label_img_wrap');
-      const textWrap = target.closest('li').querySelector('.text_wrap');
-      const button = target.closest('li').querySelector('.file_delete');
+      const ele = target.closest('.view_wrap').querySelector('.label_img_wrap');
+      const textWrap = target.closest('.view_wrap').querySelector('.text_wrap');
+      const button = target.closest('.view_wrap').querySelector('.file_delete');
       console.log(file);
 
-      if (file.type === 'image/png') {
+      if (file.type === fileType[0]) {
         button.style.display = 'block';
         textWrap.style.display = 'none';
         ele.style.position = 'static';
         ele.appendChild(preview);
         return;
-      } else if (file.type === 'application/pdf') {
+      } else if (file.type === fileType[1]) {
         const createEle = document.createElement('i');
         createEle.textContent = file.name;
         button.style.display = 'block';
