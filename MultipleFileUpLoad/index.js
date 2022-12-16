@@ -2,18 +2,23 @@ const fileInput = document.querySelectorAll('input[type=file]');
 const label = document.querySelectorAll('label');
 const deleteFileBtn = document.querySelectorAll('.file_delete');
 
+// 파일 리스트 이름
+const fileType = ['image/png', 'application/pdf'];
+
+// 파일 업로드 후 취소 버튼 클릭시 초기화
 deleteFileBtn.forEach((btn) => {
   btn.addEventListener('click', () => {
     const input = btn.parentElement.querySelector('input[type=file]');
     const imgWrap = btn.parentElement.querySelector('.label_img_wrap');
     const textWrap = btn.parentElement.querySelector('.text_wrap');
 
-    input.value = '';
+    input.value = ''; // value 초기화
 
     while (imgWrap.firstChild) {
       imgWrap.removeChild(imgWrap.firstChild);
     }
 
+    // 초기화시 UI 변경
     textWrap.style.display = 'flex';
     btn.style.display = 'none';
     imgWrap.style.position = 'absolute';
@@ -61,7 +66,7 @@ document.addEventListener('dragleave', (event) => {
 document.addEventListener('drop', (event) => {
   event.preventDefault();
   const files = event.dataTransfer?.files;
-  console.log('drop');
+
   if (event.target.className === 'label_img_wrap') {
     handleUpdate([...files], event.target);
   }
@@ -80,15 +85,14 @@ function handleUpdate(fileList, target) {
       const ele = target.closest('li').querySelector('.label_img_wrap');
       const textWrap = target.closest('li').querySelector('.text_wrap');
       const button = target.closest('li').querySelector('.file_delete');
-      console.log(file);
 
-      if (file.type === 'image/png') {
+      if (file.type === fileType[0]) {
         button.style.display = 'block';
         textWrap.style.display = 'none';
         ele.style.position = 'static';
         ele.appendChild(preview);
         return;
-      } else if (file.type === 'application/pdf') {
+      } else if (file.type === fileType[1]) {
         const createEle = document.createElement('i');
         createEle.textContent = file.name;
         button.style.display = 'block';
