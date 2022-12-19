@@ -1,0 +1,47 @@
+.upload_box {
+  width: 100%;
+}
+.upload_box .upload_label {
+  display: block;
+  width: 100%;
+  height: 178px;
+  border-radius: 12px;
+  background: #747474;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+.upload_box .upload_label svg {
+  width: 40px;
+  margin-bottom: 16px;
+}
+.upload_box .upload_label.error {
+  border: 2px solid #ff962e;
+  background: #1b1b1b;
+}
+.upload_box .upload_label.error svg path {
+  fill: #ff962e;
+}
+.upload_box .upload_label.error span {
+  color: #ff962e;
+}
+.upload_box .upload_label.on {
+  border: 2px solid #2ecdff;
+  background: #1b1b1b;
+}
+.upload_box .upload_label.on svg path {
+  fill: #2ecdff;
+}
+.upload_box .upload_label.on span {
+  color: #2ecdff;
+}
+.upload_box .upload_label span {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #fff;
+}
+
+/*# sourceMappingURL=style.css.map */
